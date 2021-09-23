@@ -1,8 +1,9 @@
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+
 import Alunos from './pages/alunos';
-import Error from './pages/error';
+
 
 export default function Routes() {
     return (

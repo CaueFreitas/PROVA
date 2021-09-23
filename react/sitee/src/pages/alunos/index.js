@@ -26,16 +26,19 @@ export default function Index() {
     const [estoque, setEstoque] = useState('');
     const [descricao, setDescricao] = useState('');
     const [idAlterando, setIdAlterando] = useState(0);
-    const load = useRef(null)
+    const load = useRef(null)   
 
 
-    async function listar(){
+     async function listar(){
         load.current.continuousStart();
     
         let r = await api.listar();
         setProduto(r);
         load.current.complete();
+        
     }
+
+    
 
     const validarResposta = (resp) => {
        
@@ -156,6 +159,8 @@ export default function Index() {
                 setAvaliacao(item.vl_avaliacao);
     }
 
+    
+
     useEffect(() =>{
         listar();
      }, [])
@@ -182,6 +187,7 @@ export default function Index() {
                                     <div class="input"> <input type="text" value={nmProduto} onChange={e => setnmProduto(e.target.value)}/> </div>  
                                     <div class="corse-student" style={{marginLeft:"30px", marginRight:"27px"}}> Preço DE: </div>  
                                     <div class="input"> <input type="text" value={precode} onChange={e => setPrecode(e.target.value)}/> </div>
+                                    
                                 </div> 
                                 <div class="agp-input">
                                     <div class="number-student"> Categoria: </div>  
